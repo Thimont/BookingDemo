@@ -54,11 +54,35 @@
 
             <div id="dragNdropContainer">
                 <div class="row">
-                    <div id="allCourses" class="col s5">
-                        <ul th:each="cour : ${cours}" id="allCoursesList" class="connectedSortable list-group">
-                            <li class="list-group-item ui-state-default" th:text="${cour.libelle}"></li>
-                        </ul>
-                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Libelle</th>
+                            <th>Code</th>
+                            <th>Nombre d'Heures</th>
+                            <th>Compteur d'Heures</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="cour : ${cours}">
+                            <td th:text="${cour.libelle}"></td>
+                            <td th:text="${cour.code}"></td>
+                            <td th:text="${cour.nbHeures}"></td>
+                            <td th:text="${cour.cptHeures}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button id="saveChanges" class="btn btn-small" style="float:right">Ajouter un cours</button>
+                    <!--<div id="allCourses" class="col s5">-->
+                        <!--<th>Code</th>-->
+                        <!--<th>Libelle</th>-->
+                        <!--<th>Nombre d'Heures</th>-->
+                        <!--<th>Compteur d'Heures</th>-->
+                        <!--<ul th:each="cour : ${cours}" id="allCoursesList" class="connectedSortable list-group">-->
+                            <!--<li class="list-group-item ui-state-default" th:text="${cour.libelle}"></li>-->
+                        <!--</ul>-->
+                        <!--<button id="saveChanges" class="btn btn-small" style="float:right">Ajouter un cours</button>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
