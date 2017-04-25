@@ -1,4 +1,4 @@
-package florianthieblemont.booking;
+package florianthieblemont.ent;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

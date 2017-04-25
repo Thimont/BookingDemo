@@ -1,31 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Hotel Booking App</title>
-    <link th:if="${mode == 'development'}" rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}"/>
-    <link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <meta charset="UTF-8"/>
+    <title>Liste des cours</title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/css/mdb.min.css" rel="stylesheet"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.1/fullcalendar.print.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.3.1/fullcalendar.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css" />
 </head>
+
 <body>
 <header>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Booking Demo</a>
-            </div>
-            <p class="navbar-text navbar-right" th:text="'Signed in as ' + ${username}" style="margin-right: 10px;">Signed as Anonymous</p>
+    <nav>
+        <div class="nav-wrapper row">
+            <a href="#" class="brand-logo">Logo</a>
+
+            <ul id="nav-mobile" class="col s8 offset-s1 left hide-on-med-and-down">
+                <li><a href="#">Gestion des classes</a></li>
+                <li><a href="#">Gestion des Cours</a></li>
+                <li><a href="#">Gestion calendriers</a></li>
+                <li><a href="#">Gestion des fichiers</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#"><i class="material-icons left">mail</i>Messagerie</a></li>
+                <li><a href="#"><i class="material-icons left">account_circle</i>Mon Compte</a></li>
+            </ul>
         </div>
+
     </nav>
 </header>
-<div>
-    Hello, Thymleaf !
-</div>
+<div id="topContainer">
+    <div class="row">
+        <div id="topRightContainer" class="col s9" style="height: 800px;padding:10px;">
+            <h5><small id="selectedClassCoursesLabel">Liste des cours</small></h5>
+            <hr/>
 
-<footer class="footer" style="position: absolute; bottom: 0;background-color: #f5f5f5;">
-    <div class="container">
-        <p class="text-muted" th:text="'Page was rendered ' + ${#dates.format(datetime, 'dd/MM/yyyy')} + '.'">Page was rendered today.</p>
+            <div id="dragNdropContainer">
+                <div class="row">
+                    <div id="allCourses" class="col s5">
+                        <ul th:each="cour : ${cours}" id="allCoursesList" class="connectedSortable list-group">
+                            <li class="list-group-item ui-state-default" th:text="${cour.libelle}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-</footer>
+</div>
+<!--</div>
+    <div class="container">
+        <h2>Liste des cours</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Nombre d'Heures</th>
+                <th>Compteur d'Heures</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="cour : ${cours}">
+               <td th:text="${cour.code}"></td>
+               <td th:text="${cour.libelle}"></td>
+               <td th:text="${cour.nbHeures}"></td>
+               <td th:text="${cour.cptHeures}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>-->
 </body>
 </html>

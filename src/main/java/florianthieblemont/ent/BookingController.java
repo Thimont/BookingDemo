@@ -1,4 +1,4 @@
-package florianthieblemont.booking;
+package florianthieblemont.ent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

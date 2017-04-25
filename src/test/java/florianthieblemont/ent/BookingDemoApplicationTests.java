@@ -1,4 +1,4 @@
-package florianthieblemont.booking;
+package florianthieblemont.ent;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
