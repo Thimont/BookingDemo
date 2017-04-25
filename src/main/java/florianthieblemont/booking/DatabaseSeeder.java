@@ -9,21 +9,21 @@ import java.util.List;
 
 @Component
 public class DatabaseSeeder implements CommandLineRunner {
-    private BookingRepository bookingRepository;
+    private CoursRepository coursRepository;
 
     @Autowired
-    public DatabaseSeeder(BookingRepository bookingRepository) {
-        this.bookingRepository = bookingRepository;
+    public DatabaseSeeder(CoursRepository coursRepository) {
+        this.coursRepository = coursRepository;
     }
 
     @Override
     public void run(String... strings) throws Exception {
-        List<HotelBooking> bookings = new ArrayList<>();
+        List<Cours> cours = new ArrayList<>();
 
-        bookings.add(new HotelBooking("Marriot", 200.50, 3));
-        bookings.add(new HotelBooking("Ibis", 90, 4));
-        bookings.add(new HotelBooking("Novotel", 140.74, 3));
+        cours.add(new Cours(20, "POA", 20));
+        cours.add(new Cours(19, "CMOO", 15));
+        cours.add(new Cours(21, "Marketing", 30));
 
-        bookingRepository.save(bookings);
+        coursRepository.save(cours);
     }
 }
